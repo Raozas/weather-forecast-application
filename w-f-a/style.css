@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    background: linear-gradient(to bottom, #3C493F, #7e8d85);
+    overflow: hidden;
+    height: 100vh;
+}
+i{
+    position: absolute;
+    height: 200px;
+    background: linear-gradient(transparent, #fff);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: animate 5s linear infinite;
+}
+i:nth-child(3n +1){
+    background: linear-gradient(transparent, #f0f0f0);
+    height: 180px;
+}
+i:nth-child(3n +2){
+    background: linear-gradient(transparent, #bbb7b7ef);
+    height: 160px;
+}
+i:nth-child(3n +3){
+    background: linear-gradient(transparent, #f7eeee);
+    height: 140px;
+}
+@keyframes animate{
+    0%{
+        transform: translateY(-200px);
+    }
+    100%{
+        transform: translateY(calc(100vh + 200px));
+    }
+
+}
+snow, snow:after, snow:before{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-image: radial-gradient(4px 4px at 100px 50px, #fff, transparent);
+}
+
+
+header{
+    margin-top: 40px;
+
+
+}
+
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    opacity: 0.5;
+}
+
+main{
+    width: auto;
+    height: 700px;
+    margin-bottom: 30px;
+}
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.weather-info{
+    
+    margin: 20px 0;
+    
+}
+
+
+#weather-condition {
+    font-size: 30px;
+    font-weight: bold;
+    color: #f0f0f0;
+    margin-bottom: -10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#temperature {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f0f0f0;
+    margin: 10px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#city-name {
+    font-size: 50px;
+    font-weight: bold;
+    color: #f0f0f0;
+    margin: 10px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#weather-icon{
+    size: 120px;
+}
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#search-btn:hover{
+    background-color: #0069d9;
+
+}
+
+.weather-info {
+    text-align: center;
+    font-size: 20px;
+}
+
+#humidity, #wind-speed {
+    font-size: 16px;
+}
