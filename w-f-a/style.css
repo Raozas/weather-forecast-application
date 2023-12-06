@@ -12,6 +12,7 @@ body {
 i{
     position: absolute;
     height: 200px;
+    top: 0;
     background: linear-gradient(transparent, #fff);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
