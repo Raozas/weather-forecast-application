@@ -6,67 +6,29 @@
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <script>
-            function rain(){
-        let amount = 20;
-        let body = document.querySelector('body');
-        let i = 0;
-        while(i < amount){
-            let drop = document.createElement('i');
-        
-            let size = Math.random() * 5;
-            let posX = Math.floor(Math.random() *window.innerWidth)
-            let delay = Math.random() * -20;
-            let duration = Math.random() * 5;
-            drop.style.width = 0.2 + size+'px';
-            drop.style.left = posX + 'px';
-            drop.style.animationDelay = delay + 's';
-            drop.style.animationDuration = 1 + duration + 's';
-            body.appendChild(drop);
-            i++
-        }
-    }
-
-    
-        rain();
-    
-    </script>
-    <header>
-        <div class="header">
-            <h1>Weather Forecast</h1>
-        </div>
-    </header>
-    <main>
-        
-        <div class="search-box">
-            <label for="search-input">
-                <input type="text" placeholder="Enter city name" id="search-input" >
-            </label>
-            <button id="search-btn" name="search-input">Search</button>
-        </div>
-        <div class="weather-info">
-            <h2 id="city-name"></h2>
-            <!-- <button id="location-btn">Use Current Location</button> -->
-            <h3 id="temperature"></h3>
-            <p id="weather-condition"></p>
-        </div>
-        <div class="weather-info">
-            <h2 id="city-name"></h2>
-            <img id="weather-icon" src="" alt="Weather icon" >
-            <!-- rest of your elements -->
-        </div>
-    </main>
-    <div class="section">
-        <div class="weather-info">
-            <h2 id="city-name"></h2>
-            <h3 id="temperature"></h3>
-            <p id="weather-condition"></p>
-            <p id="humidity"></p>
-            <p id="wind-speed"></p>
-        </div>
+<body class="light">
+<button id="theme-toggle">Toggle Theme</button>
+<div id="loading" style="display: none;">Loading...</div>
+<div id="message"></div>
+<header>
+    <div class="header">
+        <h1>Weather Forecast</h1>
     </div>
-
-    <script src="./app.js"></script>
+</header>
+<main>
+    <div class="search-box">
+        <input type="text" placeholder="Enter city name" id="search-input">
+        <button id="search-btn">Search</button>
+    </div>
+    <div class="weather-info">
+        <h2 id="city-name"></h2>
+        <h3 id="temperature"></h3>
+        <p id="weather-condition"></p>
+        <img id="weather-icon" alt="Weather Icon">
+        <p id="humidity"></p>
+        <p id="wind-speed"></p>
+    </div>
+</main>
+<script src="app.js"></script>
 </body>
 </html>
