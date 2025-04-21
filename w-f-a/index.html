@@ -8,7 +8,9 @@
 </head>
 <body class="light">
 <button id="theme-toggle">Toggle Theme</button>
-<div id="loading" style="display: none;">Loading...</div>
+<div id="loading" style="display: none;">
+    <div class="spinner"></div>
+</div>
 <div id="message"></div>
 <header>
     <div class="header">
@@ -19,6 +21,8 @@
     <div class="search-box">
         <input type="text" placeholder="Enter city name" id="search-input">
         <button id="search-btn">Search</button>
+        <button id="location-btn">Use My Location</button>
+
     </div>
     <div class="weather-info">
         <h2 id="city-name"></h2>
@@ -28,6 +32,7 @@
         <p id="humidity"></p>
         <p id="wind-speed"></p>
     </div>
+
 </main>
 <script src="app.js"></script>
 </body>

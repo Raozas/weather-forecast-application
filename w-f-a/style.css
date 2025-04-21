@@ -52,19 +52,19 @@ main {
     width: 100%;
 }
 
-#search-input {
-    flex: 1;
+#search-input, #search-btn, #location-btn {
     padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#search-btn {
-    padding: 12px 24px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
+}
+
+#search-input {
+    flex: 1;
+    border: 1px solid #ccc;
+}
+
+#search-btn, #location-btn {
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -79,7 +79,17 @@ body.dark #search-btn {
     color: #fff;
 }
 
-#search-btn:hover {
+body.light #location-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+body.dark #location-btn {
+    background-color: #1f7a38;
+    color: #fff;
+}
+
+#search-btn:hover, #location-btn:hover {
     opacity: 0.9;
 }
 
@@ -90,6 +100,11 @@ body.dark #search-btn {
     border-radius: 8px;
     max-width: 600px;
     width: 100%;
+    margin-top: 20px;
+}
+
+body.dark .weather-info, body.dark .forecast-info {
+    background: rgba(51, 51, 51, 0.9);
 }
 
 #weather-icon {
@@ -124,6 +139,20 @@ body.dark #search-btn {
     color: #fff;
     padding: 10px 20px;
     border-radius: 4px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 #message {
@@ -209,27 +238,15 @@ body.tornado {
         flex-direction: column;
         align-items: stretch;
     }
-
-    #search-input,
-    #search-btn {
+    #search-input, #search-btn, #location-btn {
         width: 100%;
+        margin-bottom: 10px;
     }
-
     .weather-info {
-        padding: 15px;
+        padding: 10px;
     }
-
-    #city-name {
-        font-size: 24px;
-    }
-
-    #temperature {
-        font-size: 20px;
-    }
-
-    #weather-condition,
-    #humidity,
-    #wind-speed {
-        font-size: 16px;
+    #weather-icon {
+        width: 80px;
+        height: 80px;
     }
 }

@@ -37,7 +37,7 @@ const weatherBackgroundMap = {
 
 // Fetch weather data from OpenWeatherMap API
 async function fetchWeather(city) {
-    const apiKey = 'OPENAI_API_KEY';
+    const apiKey = 'OPENAI_API_KEY'; //94b9f515a44744232656d4d09b9644d3
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     try {
         const response = await fetch(url);
@@ -46,6 +46,22 @@ async function fetchWeather(city) {
         }
         const data = await response.json();
         // Convert temperature from Kelvin to Celsius
+        data.main.temp = (data.main.temp - 273.15).toFixed(2);
+        return data;
+    } catch (error) {
+        throw error;
+    }
+}
+// Fetch weather data by coordinates
+async function fetchWeatherByCoords(lat, lon) {
+    const apiKey = '94b9f515a44744232656d4d09b9644d3';
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Weather data unavailable');
+        }
+        const data = await response.json();
         data.main.temp = (data.main.temp - 273.15).toFixed(2);
         return data;
     } catch (error) {
@@ -92,7 +108,32 @@ function handleSearch() {
             document.getElementById('loading').style.display = 'none';
         });
 }
-
+// Handle geolocation
+function handleGeolocation() {
+    if (navigator.geolocation) {
+        document.getElementById('loading').style.display = 'block';
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                const { latitude, longitude } = position.coords;
+                fetchWeatherByCoords(latitude, longitude)
+                    .then(data => {
+                        updateWeatherUI(data);
+                        document.getElementById('loading').style.display = 'none';
+                    })
+                    .catch(error => {
+                        document.getElementById('message').innerText = 'Unable to fetch weather';
+                        document.getElementById('loading').style.display = 'none';
+                    });
+            },
+            () => {
+                document.getElementById('message').innerText = 'Geolocation permission denied';
+                document.getElementById('loading').style.display = 'none';
+            }
+        );
+    } else {
+        document.getElementById('message').innerText = 'Geolocation not supported';
+    }
+}
 // Rain animation
 function rain() {
     for (let i = 0; i < 20; i++) {
@@ -130,6 +171,7 @@ document.getElementById('search-input').addEventListener('keypress', function(e)
         handleSearch();
     }
 });
+document.getElementById('location-btn').addEventListener('click', handleGeolocation);
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 // Initialize theme
