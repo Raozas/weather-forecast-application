@@ -1,4 +1,3 @@
-// Weather condition to icon and background mappings
 const weatherIconMap = {
     "Clear": "sun",
     "Clouds": "cloud",
@@ -134,7 +133,7 @@ function handleGeolocation() {
         document.getElementById('message').innerText = 'Geolocation not supported';
     }
 }
-// Rain animation
+// Rain animation/i don't think that's working
 function rain() {
     for (let i = 0; i < 20; i++) {
         const drop = document.createElement('i');
