@@ -37,7 +37,7 @@ const weatherBackgroundMap = {
 
 // Fetch weather data from OpenWeatherMap API
 async function fetchWeather(city) {
-    const apiKey = '94b9f515a44744232656d4d09b9644d3';
+    const apiKey = 'OPENAI_API_KEY';
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     try {
         const response = await fetch(url);
