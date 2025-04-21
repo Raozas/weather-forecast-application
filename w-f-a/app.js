@@ -1,4 +1,3 @@
-// Weather condition to icon and background mappings
 const weatherIconMap = {
     "Clear": "sun",
     "Clouds": "cloud",
