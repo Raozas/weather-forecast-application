@@ -41,7 +41,7 @@ Weather condition icons
 ## 📦 Installation
 
 Clone the Repository:
-git clone https://github.com/Raozas/weather-forecast.git
+git clone https://[github.com/Raozas/weather-forecast.git](https://github.com/Raozas/weather-forecast-application)
 
 
 Navigate to the Project Directory:
